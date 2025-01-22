@@ -1,4 +1,6 @@
-Version_SP#0.1#Version_EP
-URL_SP#https://lz.ly93.cc/1118/219485777/VUPT.exe#URL_EP
+Version_SP#0.2#Version_EP
+URL_SP#https://lz.ly93.cc/1118/219491517#URL_EP
 Changelog_SP#更新日志如下：
-1.增加更多的解析方式#Changelog_EP
+1.增加更多的解析方式
+2.修复了0.1版本中解析后，无法点击按钮自动进入网页
+3.修改网页打开方式explorer为WinAPI，增加了兼容性#Changelog_EP
