@@ -1,4 +1,4 @@
-Version_SP#0.2#Version_EP
+Version_SP#0.1#Version_EP
 URL_SP#https://lz.ly93.cc/1118/219485777/VUPT.exe#URL_EP
 Changelog_SP#更新日志如下：
 1.增加更多的解析方式#Changelog_EP
