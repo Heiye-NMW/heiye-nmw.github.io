@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+    font-family: "Avenir Next", Avenir, "Helvetica Neue", "Lato", "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+.bilidown-app {
+    padding: 80px 8vw 60px;
+    display: flex;
+}
+
+.bilidown-app .app-icon-name {
+    width: 50vw;
+    margin-top: 90px;
+}
+
+.bilidown-app .app-icon-name svg {
+    opacity: 0;
+}
+
+.bilidown-app .app-icon-name img {
+    width: 150px;
+    opacity: 0;
+}
+
+.bilidown-app .app-icon-name h1 {
+    margin-top: 12px;
+    opacity: 0;
+    color: #222;
+}
+
+.bilidown-app .app-icon-name .briefly {
+    margin-top: 14px;
+    font-size: 14px;
+    color: #4c515b;
+    line-height: 22px;
+    opacity: 0;
+}
+
+.bilidown-app .app-icon-name .down-btn {
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+}
+
+.bilidown-app .app-icon-name .down-btn button {
+    padding: 10px 26px;
+    border-radius: 980px;
+    border: none;
+    outline: none;
+    background: #3ba475;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+}
+
+.bilidown-app .app-icon-name .down-btn button:hover span:nth-of-type(2) {
+    transform: translateX(6px) scale(1.1);
+}
+
+.bilidown-app .app-icon-name .down-btn button span {
+    transition: all 0.2s;
+    font-weight: 600;
+}
+
+.bilidown-app .app-icon-name .down-btn button span:nth-of-type(2) {
+    margin-left: 12px;
+}
+
+.bilidown-app .app-icon-name .down-btn .version {
+    position: relative;
+    font-size: 14px;
+    color: #454545;
+    font-weight: 400;
+    margin-left: 10px;
+}
+
+.bilidown-app .app-icon-name .down-btn .version::after {
+    content: "new";
+    position: absolute;
+    right: -36px;
+    top: -12px;
+    height: 18px;
+    line-height: 18px;
+    text-align: center;
+    padding: 0 6px;
+    border-radius: 980px;
+    background: #3ba47595;
+    color: #fff;
+    font-size: 12px;
+    display: inline-block;
+}
+
+.bilidown-app .app-icon-name .history {
+    opacity: 0;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+.bilidown-app .app-icon-name .history a {
+    color: #3ba475;
+    text-decoration: none;
+}
+
+.bilidown-app .app-img-pre {
+    flex: 1;
+}
+
+.bilidown-app .app-img-pre img {
+    filter: drop-shadow(5px 5px 8px #c2c2c2);
+    height: 80vh;
+    position: absolute;
+    left: 60vw;
+    border-radius: 9px;
+    border: 1px solid #c3c3c3;
+    opacity: 0;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+    .bilidown-app {
+        flex-direction: column;
+    }
+    .bilidown-app .app-icon-name {
+        width: 100%;
+        margin-top: 40px;
+    }
+    .bilidown-app .app-icon-name img {
+        width: 120px;
+    }
+    .bilidown-app .app-icon-name h1 {
+        font-size: 22px;
+    }
+    .bilidown-app .app-icon-name .briefly {
+        font-size: 13px;
+        line-height: 28px;
+    }
+    .app-img-pre {
+        width: 100%;
+    }
+    .app-img-pre img {
+        position: relative !important;
+        width: 100%;
+        height: auto !important;
+        left: 0 !important;
+    }
+}

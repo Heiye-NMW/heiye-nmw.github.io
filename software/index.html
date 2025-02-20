@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+    <style>
+        .nav{
+            display: flex;
+            list-style: none;
+        }
+        li{
+            width: 100px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            margin: 0 10px;
+            background-color:rebeccapurple;
+            font-size: 18px;
+            color:#fff
+        }
+    </style>
+</head>
+<body>
+    <ul class="nav">
+        <li data-src="./html/page01.html">首页</li>
+        <li data-src="./html/page02.html">第一页</li>
+        <li data-src="./html/page03.html">第二页</li>
+    </ul>
+    <!-- 使用iframe标签切换 最好src默认值为空-->
+    <iframe src="" frameborder="0" id="iframe"></iframe>
+    <script>
+ 
+        //有两种方法，推荐第二种
+        //方法一
+        //将地址放在数组中
+        let arr = ['./html/page01.html','./html/page02.html','./html/page03.html']
+        //获取iframe标签
+        let iframe = document.querySelector('#iframe')
+        //获取导航栏按钮
+        let lis = document.querySelectorAll('li')
+        //点击导航栏，改变Iframe的src属性，实现页面切换
+        for (let i = 0; i < lis.length; i++) {
+            //绑定点击事件
+            lis[i].onclick = function(event){
+                //方法一
+                // iframe.src = arr[i]
+                //方法二 自定义属性
+                iframe.src = event.target.dataset.src
+            }
+            
+        }
+    </script>
+</body>
+</html>
