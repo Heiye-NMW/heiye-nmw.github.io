@@ -132,23 +132,29 @@ body {
     .bilidown-app {
         flex-direction: column;
     }
+
     .bilidown-app .app-icon-name {
         width: 100%;
         margin-top: 40px;
     }
+
     .bilidown-app .app-icon-name img {
         width: 120px;
     }
+
     .bilidown-app .app-icon-name h1 {
         font-size: 22px;
     }
+
     .bilidown-app .app-icon-name .briefly {
         font-size: 13px;
         line-height: 28px;
     }
+
     .app-img-pre {
         width: 100%;
     }
+
     .app-img-pre img {
         position: relative !important;
         width: 100%;

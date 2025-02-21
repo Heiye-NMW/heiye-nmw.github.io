@@ -1,56 +1,125 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html class="is-chrome is-chrome51 is-not-hv is-not-mac-os is-not-mobile is-not-touch" lang="zh-cn">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>首页</title>
-    <style>
-        .nav{
-            display: flex;
-            list-style: none;
-        }
-        li{
-            width: 100px;
-            height: 50px;
-            line-height: 50px;
-            text-align: center;
-            margin: 0 10px;
-            background-color:rebeccapurple;
-            font-size: 18px;
-            color:#fff
-        }
-    </style>
+	<link rel="icon" href="img/favicon.ico">
+	<meta charset="utf-8" />
+	<title>黑曳のHeiye | 软件推荐</title>
+	<meta name="keywords" content="软件推荐,Heiye,黑曳のHeiye,zhanghaoyu,张浩宇">
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<link rel="stylesheet" href="css/padmain.css" />
+	<link rel="stylesheet" href="css/G100A.css">
 </head>
-<body>
-    <ul class="nav">
-        <li data-src="./html/page01.html">首页</li>
-        <li data-src="./html/page02.html">第一页</li>
-        <li data-src="./html/page03.html">第二页</li>
-    </ul>
-    <!-- 使用iframe标签切换 最好src默认值为空-->
-    <iframe src="" frameborder="0" id="iframe"></iframe>
-    <script>
- 
-        //有两种方法，推荐第二种
-        //方法一
-        //将地址放在数组中
-        let arr = ['./html/page01.html','./html/page02.html','./html/page03.html']
-        //获取iframe标签
-        let iframe = document.querySelector('#iframe')
-        //获取导航栏按钮
-        let lis = document.querySelectorAll('li')
-        //点击导航栏，改变Iframe的src属性，实现页面切换
-        for (let i = 0; i < lis.length; i++) {
-            //绑定点击事件
-            lis[i].onclick = function(event){
-                //方法一
-                // iframe.src = arr[i]
-                //方法二 自定义属性
-                iframe.src = event.target.dataset.src
-            }
-            
-        }
-    </script>
+
+<body class="ember-application" dir="ltr">
+
+	<div class="ember-view" role="application">
+		<header class="ember-view app">
+			<div id="header-content" class="centered clearfix">
+				<div class="logo">
+					<button onclick="goBack();">
+						<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 48 48">
+							<g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+								stroke-width="4">
+								<path d="m13 8l-7 6l7 7" />
+								<path
+									d="M6 14h22.994c6.883 0 12.728 5.62 12.996 12.5c.284 7.27-5.723 13.5-12.996 13.5H11.998" />
+							</g>
+						</svg>
+					</button>
+					<span style="font-size: 28px;">黑曳のHeiye | 软件推荐</span>
+				</div>
+				<button type="button" class="collapsed" data-toggle="collapse" data-target="#navbar-collapse-1"
+					aria-expanded="false" aria-controls="navbar-collapse-1" id="menuBtn">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar top"></span>
+					<span class="icon-bar middle"></span>
+					<span class="icon-bar bottom"></span>
+				</button>
+			</div>
+		</header>
+		<div class="highC">
+			<div id="content" class="centered clearfix">
+				<nav id="nav" class="hid" role="navigation" aria-label="目录">
+					<div class="nav-wrap">
+						<ul>
+							<h2>安全事项</h2>
+							<li><a href="#modal1">安全事项</a></li>
+							<h2>产品介绍</h2>
+							<li><a href="#modal2">机器部件介绍</a></li>
+							<li><a href="#modal3">按键说明</a></li>
+							<li><a href="#modal4">开机、关机、休眠</a></li>
+							<li><a href="#modal5">触摸屏操作</a></li>
+							<li><a href="#modal7">文件下载说明</a></li>
+							<li><a href="#modal8">系统升级</a></li>
+							<h2>附录</h2>
+							<li><a href="#modal9">随机配件</a></li>
+							<li><a href="#modal10">规格参数</a></li>
+							<li><a href="#modal11">简易故障排除</a></li>
+							<li><a href="#modal12">电子信息产品环保标识说明</a></li>
+							<li><a href="#modal12_2">能效标识</a></li>
+							<li><a href="#modal13">维修记录和保修卡</a></li>
+							<li><a href="#modal14">关于读书郎</a></li>
+						</ul>
+					</div>
+				</nav>
+				<div id="main">
+					<h1>学生平板C70 Pro使用说明书</h1>
+					<div id="modal1" class="modal">
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery.nav.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+		<script type="text/javascript" src="/js/tyjs.js"></script>
+		<script>
+			function getQuery(key) {
+				var search = window.location.search.substring(1)
+				var queryGroups = search.split('&')
+				for (let i = 0; i < queryGroups.length; i++) {
+					var query = queryGroups[i].split('=')
+					if (key === query[0]) {
+						return query[1]
+					}
+				}
+			}
+
+			// 区分4G版和Wi-Fi版
+			// var network = document.getElementById('network')
+			var battery = document.getElementById('battery')
+			var BAT = getQuery('BAT') || '8000'
+			battery.innerHTML = BAT + 'mAh'
+
+			var authModel = document.getElementById('authModel')
+			var RZN = getQuery('RZN') || 'RBC22A20'
+			authModel.innerText = RZN
+
+			var memory = document.getElementById('memory')
+			var RAM = getQuery('A') || '8'
+			var ROM = getQuery('O') || '256'
+			memory.innerText = RAM + 'GB+' + ROM + 'GB'
+			// var imagesWiFi = document.getElementById('images-wi-fi')
+			// var images4G = document.getElementById('images-4g')
+			// var TF = document.getElementsByClassName('tf')
+
+			// var MDL = getQuery('MDL')
+			// if (MDL && MDL.indexOf('Y19') >= 0) {
+			// 	network.innerText = '+4G'
+			// 	battery.innerText = '10000mAh'
+			// 	imagesWiFi.style.display = 'none'
+			// } else {
+			// 	battery.innerText = '8050mAh（典型容量）'
+			// 	// images4G.style.display = 'none'
+			// 	for (var i = 0; i < TF.length; i++) {
+			// 		TF[i].style.display = 'none'
+			// 	}
+			// }
+		</script>
 </body>
+
 </html>

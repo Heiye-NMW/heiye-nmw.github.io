@@ -1,5 +1,5 @@
 body,
-header{
+header {
   padding: 0;
   margin: 0;
   border: 0;
@@ -33,7 +33,5 @@ header.app {
   line-height: 1.9;
   box-sizing: border-box;
   background: #fafafa;
-  
+
 }
-
-
