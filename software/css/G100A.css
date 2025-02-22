@@ -77,3 +77,45 @@
 	background-repeat: no-repeat;
 }
 
+.jjhtp {
+	display: flex;
+	gap: 20px;
+	align-items: flex-start;
+  }
+  
+  .software-image img {
+	width: 100%;
+	max-width: 550px;
+	/* 根据需要调整 */
+	height: auto;
+  }
+  
+  .software-description {
+	flex: 1;
+  }
+  
+  @media (max-width: 768px) {
+	.jjhtp {
+	  flex-direction: column;
+	}
+  }
+  
+  
+  .jjhtp .software-description p {
+	font-size: 65%;
+  }
+  
+  .download-link {
+	display: inline-block;
+	margin: 10px 0;
+	padding: 10px 20px;
+	background-color: #007bff;
+	color: white;
+	text-decoration: none;
+	border-radius: 5px;
+	font-size: 16px;
+  }
+  
+  .download-link:hover {
+	background-color: #0056b3;
+  }
