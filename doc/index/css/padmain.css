@@ -1238,3 +1238,9 @@ strong {
 .alipaylicense {
   float: left;
 }
+
+@media (max-width: 768px) {
+  .apaylicenall {
+      flex-direction: column; /* 在小屏幕上堆叠显示 */
+  }
+}
