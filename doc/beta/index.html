@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>竖向导航栏 + 深色配色</title>
+    <link rel="icon" href="/image/avata_homepage.png" type="image/x-icon" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            background-color: #f5f5f5;
+        }
+
+        .navbar {
+            width: 200px;
+            background: linear-gradient(135deg, #333, #444); /* 深色主题 */
+            color: white;
+            height: 100vh;
+            overflow-y: auto; /* 垂直滚动条 */
+            overflow-x: hidden; /* 取消横向滚动条 */
+            position: fixed;
+            top: 0;
+            left: 0;
+            transition: transform 0.3s ease;
+            transform: translateX(0);
+            z-index: 1000;
+        }
+
+        .navbar.hidden {
+            transform: translateX(-100%);
+        }
+
+        .navbar .nav-item {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: white;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .navbar .nav-item:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateX(10px);
+        }
+
+        .navbar .dropdown {
+            display: none;
+            padding-left: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar .title {
+            text-align: center;
+            font-size: 1.2em;
+            padding: 10px 0;
+            margin: 0;
+        }
+
+        .content {
+            flex: 1;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            transition: margin-left 0.3s ease;
+        }
+
+        .content.shifted {
+            margin-left: 200px;
+        }
+
+        .menu-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 1.2em;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .navbar {
+                width: 100%;
+                height: 100vh;
+                transform: translateX(-100%);
+            }
+
+            .content {
+                margin-left: 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar hidden">
+        <div class="title">黑曳のHeiye</div>
+        <div class="nav-item" onclick="loadContent('home.html')">首页</div>
+        <div class="nav-item dropdown-btn">关于我们
+            <div class="dropdown">
+                <div class="nav-item" onclick="loadContent('about.html')">公司简介</div>
+                <div class="nav-item" onclick="loadContent('team.html')">团队介绍</div>
+            </div>
+        </div>
+        <div class="nav-item" onclick="loadContent('services.html')">服务</div>
+        <div class="nav-item" onclick="loadContent('contact.html')">联系我们</div>
+    </div>
+
+    <div class="content">
+        <div id="content">
+            <!-- 动态加载的内容将显示在这里 -->
+        </div>
+    </div>
+
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('url')) {
+            const getUrlPage = urlParams.get('url');
+            loadContent(getUrlPage + '.html');
+        } else {
+            loadContent('home.html');
+        }
+
+        // 动态加载内容
+        async function loadContent(page) {
+            const contentDiv = document.getElementById('content');
+            try {
+                const response = await fetch(page);
+                if (!response.ok) {
+                    throw new Error(`HTTPS error! status: ${response.status}`);
+                }
+                const text = await response.text();
+                contentDiv.innerHTML = text;
+            } catch (error) {
+                contentDiv.innerHTML = `<h2 style="text-align: center;">加载页面时出错：<br>${error}</h2>`;
+                loadContent('home.html');
+            }
+        }
+
+        // 处理子菜单按钮的点击事件
+        document.querySelectorAll('.dropdown-btn').forEach(button => {
+            button.addEventListener('click', function(event) {
+                event.preventDefault();
+                const dropdownMenu = this.querySelector('.dropdown');
+                if (dropdownMenu.style.display === 'block') {
+                    dropdownMenu.style.display = 'none';
+                } else {
+                    document.querySelectorAll('.dropdown').forEach(menu => {
+                        if (menu !== dropdownMenu) {
+                            menu.style.display = 'none';
+                        }
+                    });
+                    dropdownMenu.style.display = 'block';
+                }
+            });
+        });
+
+        // 点击非子菜单项时关闭所有子菜单
+        document.querySelectorAll('.nav-item:not(.dropdown-btn)').forEach(item => {
+            item.addEventListener('click', function(event) {
+                document.querySelectorAll('.dropdown').forEach(menu => {
+                    menu.style.display = 'none';
+                });
+            });
+        });
+
+        // 切换导航栏显示
+        function toggleMenu() {
+            const navbar = document.querySelector('.navbar');
+            const content = document.querySelector('.content');
+            if (navbar.classList.contains('hidden')) {
+                navbar.classList.remove('hidden');
+                content.classList.add('shifted');
+            } else {
+                navbar.classList.add('hidden');
+                content.classList.remove('shifted');
+            }
+        }
+    </script>
+</body>
+</html>
