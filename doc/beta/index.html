@@ -21,16 +21,8 @@
             height: 100vh;
             overflow-y: auto; /* 垂直滚动条 */
             overflow-x: hidden; /* 取消横向滚动条 */
-            position: fixed;
-            top: 0;
-            left: 0;
-            transition: transform 0.3s ease;
-            transform: translateX(0);
-            z-index: 1000;
-        }
-
-        .navbar.hidden {
-            transform: translateX(-100%);
+            position: relative;
+            z-index: 1; /* 确保导航栏在内容上方 */
         }
 
         .navbar .nav-item {
@@ -66,46 +58,15 @@
             padding: 20px;
             background-color: #ffffff;
             box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-            transition: margin-left 0.3s ease;
         }
 
-        .content.shifted {
-            margin-left: 200px;
-        }
-
-        .menu-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background-color: #333;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            font-size: 1.2em;
-            cursor: pointer;
-            z-index: 1001;
-        }
-
-        /* 响应式设计 */
-        @media (max-width: 768px) {
-            .navbar {
-                width: 100%;
-                height: 100vh;
-                transform: translateX(-100%);
-            }
-
-            .content {
-                margin-left: 0;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
+        .hidden {
+            display: none;
         }
     </style>
 </head>
 <body>
-    <div class="navbar hidden">
+    <div class="navbar">
         <div class="title">黑曳のHeiye</div>
         <div class="nav-item" onclick="loadContent('home.html')">首页</div>
         <div class="nav-item dropdown-btn">关于我们
@@ -123,8 +84,6 @@
             <!-- 动态加载的内容将显示在这里 -->
         </div>
     </div>
-
-    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
 
     <script>
         const urlParams = new URLSearchParams(window.location.search);
@@ -177,19 +136,6 @@
                 });
             });
         });
-
-        // 切换导航栏显示
-        function toggleMenu() {
-            const navbar = document.querySelector('.navbar');
-            const content = document.querySelector('.content');
-            if (navbar.classList.contains('hidden')) {
-                navbar.classList.remove('hidden');
-                content.classList.add('shifted');
-            } else {
-                navbar.classList.add('hidden');
-                content.classList.remove('shifted');
-            }
-        }
     </script>
 </body>
 </html>
