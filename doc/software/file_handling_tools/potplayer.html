@@ -1,0 +1,70 @@
+<style>
+    .intro_page_div {
+        display: flex;
+        gap: 20px;
+        align-items: flex-start;
+    }
+
+    .software-image img {
+        width: 100%;
+        max-width: 550px;
+        height: auto;
+    }
+
+    .software-description {
+        flex: 1;
+    }
+
+    @media (max-width: 768px) {
+        .intro_page_div {
+            flex-direction: column;
+        }
+    }
+
+
+    .intro_page_div .software-description p {
+        font-size: 65%;
+    }
+
+    .download-link {
+        display: inline-block;
+        margin: 10px 0;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    .download-link:hover {
+        background-color: #0056b3;
+    }
+</style>
+<h2 style="font-size: 180%; text-align: center;">PotPlayer</h2>
+<div class="intro_page_div">
+    <div class="software-image">
+        <img src="/doc/software/sources/potplayer/img/20211203101824872.jpg" alt="PotPlayer">
+    </div>
+    <div class="software-description">
+        <h4>PotPlayer</h4>
+        <p>1. 广泛的格式支持</p>
+        <p>PotPlayer 支持几乎所有流行的视频和音频格式，包括 MP4、MKV、AVI、FLV、MP3、FLAC 等。</p>
+        <p>2. 高级字幕功能</p>
+        <p>支持自动加载、时间调整和样式自定义。</p>
+        <p>3. 强大的硬件加速</p>
+        <p>利用硬件加速提高视频播放性能。</p>
+        <p>4. 可定制的界面</p>
+        <p>自定义皮肤、快捷键和插件。</p>
+        <p>5. 出色的播放控制功能</p>
+        <p>丰富的播放控制功能，如播放/暂停、快进/快退。</p>
+
+    </div>
+</div>
+<p>下载链接：</p>
+<a href="https://t1.daumcdn.net/potplayer/PotPlayer/Version/Latest/PotPlayerSetup64.exe" download="PotPlayerSetup64.exe"
+    class="download-link">64bit 官方服务器</a>
+<a href="https://t1.daumcdn.net/potplayer/PotPlayer/Version/Latest/PotPlayerSetup.exe" download="PotPlayerSetup.exe"
+    class="download-link">32bit 官方服务器</a>
+<a href="../sources/potplayer/PotPlayerSetup64.exe" download="PotPlayerSetup64.exe" class="download-link">64bit 本地服务器</a>
+<a href="../sources/potplayer/PotPlayerSetup.exe" download="PotPlayerSetup.exe" class="download-link">32bit 本地服务器</a>
