@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>黑曳のHeiye | 博客</title>
+    <link rel="icon" href="/logo.jpg">
+    <meta name="keywords" content="Heiye,黑曳のHeiye,黑曳,zhanghaoyu,张浩宇">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            background-color: #f5f5f5;
+        }
+
+        .navbar {
+            width: 200px;
+            background: linear-gradient(135deg, #333, #444);
+            color: white;
+            height: 100vh;
+            overflow-y: auto;
+            overflow-x: hidden;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar .nav-item {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: white;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .navbar .nav-item:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateX(10px);
+        }
+
+        .navbar .dropdown {
+            display: none;
+            padding-left: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar .title {
+            text-align: center;
+            font-size: 1.2em;
+            padding: 10px 0;
+            margin: 0;
+        }
+
+        .content {
+            flex: 1;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            transition: margin-left 0.3s ease;
+            margin-left: 200px;
+        }
+
+        .hamburger-icon {
+            display: none;
+            cursor: pointer;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 2000;
+        }
+
+        .hamburger-icon span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: #333;
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar .arrow {
+            margin-left: auto;
+            text-align: right;
+            width: 10px;
+            height: 10px;
+            fill: white;
+            transition: transform 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                width: 100%;
+                height: 100vh;
+                position: absolute;
+                top: 0;
+                left: -100%;
+                transform: translateX(0);
+                transition: left 0.3s ease, background-color 0.3s ease;
+            }
+
+            .content {
+                margin-left: 0;
+            }
+
+            .navbar.active {
+                left: 0;
+                background-color: white;
+            }
+
+            .hamburger-icon.active span {
+                background-color: white;
+            }
+
+            .navbar .nav-item {
+                padding: 10px;
+                font-size: 0.9em;
+            }
+
+            .navbar .dropdown {
+                display: block;
+                padding-left: 0;
+                margin-top: 10px;
+            }
+
+            .navbar .dropdown .nav-item {
+                padding: 10px;
+                font-size: 1em;
+            }
+
+            .hamburger-icon {
+                display: block;
+            }
+
+            .hamburger-icon span {
+                background-color: #333;
+            }
+
+            .navbar.active .hamburger-icon span {
+                background-color: white;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hamburger-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <div class="navbar">
+        <div class="title"><a href="#" onclick="goBack();"> <svg t="1741416023402" class="icon" viewBox="0 0 1024 1024"
+                    version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3937" width="22" height="20">
+                    <path
+                        d="M588.468659 257.265591H123.316451L371.227243 58.55359a31.947267 31.947267 0 1 0-39.614611-49.837737l-319.472671 255.578137v11.501016a30.669376 30.669376 0 0 0 0 4.472617v3.194727a30.669376 30.669376 0 0 0 0 4.472617v11.501016l319.472671 255.578137a31.947267 31.947267 0 1 0 40.253556-49.837737L123.316451 321.160125h465.152208C792.292223 321.160125 958.418011 464.283881 958.418011 640.632795s-166.125789 319.47267-369.949352 319.472671H95.841801a31.947267 31.947267 0 0 0 0 63.894534h492.626858C830.628943 1024 1022.312545 852.123703 1022.312545 640.632795s-191.683602-383.367205-433.843886-383.367204z"
+                        fill="white" p-id="3936"></path>
+                </svg></a>Heiye | 博客
+        </div>
+        <div class="nav-item" onclick="loadContent('home.html')">首页</div>
+        <div class="nav-item dropdown-btn">Github教程
+            <svg class="arrow" viewBox="0 0 10 10">
+                <path d="M1 1l4 4 4-4" />
+            </svg>
+            <div class="dropdown">
+                <div class="nav-item" onclick="loadContent('./github_tutorial/2fa_authentication.html')">2FA验证怎么办？这一篇就够了</div>
+            </div>
+        </div>
+        <div class="nav-item dropdown-btn">Windows教程
+            <svg class="arrow" viewBox="0 0 10 10">
+                <path d="M1 1l4 4 4-4" />
+            </svg>
+            <div class="dropdown">
+                <div class="nav-item" onclick="loadContent('./windows_tutorial/about_win7_system_does_not_display_emoji_directly.html')">关于win7系统无法正常显示Emoji表情(方块乱码)解决方案</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div id="content">
+            <!--The loaded content will be displayed here-->
+        </div>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('url')) {
+            const getUrlPage = urlParams.get('url');
+            loadContent(getUrlPage + '.html');
+        } else {
+            loadContent('home.html');
+        }
+
+        async function loadContent(page) {
+            const contentDiv = document.getElementById('content');
+            try {
+                const response = await fetch(page);
+                if (!response.ok) {
+                    throw new Error(`HTTPS error! status: ${response.status}`);
+                }
+                const text = await response.text();
+                contentDiv.innerHTML = text;
+            } catch (error) {
+                contentDiv.innerHTML = `<h2 style="text-align: center;">加载页面时出错：<br>${error}</h2>`;
+                loadContent('home.html');
+            }
+        }
+
+        document.querySelectorAll('.dropdown-btn').forEach(button => {
+            button.addEventListener('click', function (event) {
+                event.preventDefault();
+                const dropdownMenu = this.querySelector('.dropdown');
+                if (dropdownMenu.style.display === 'block') {
+                    dropdownMenu.style.display = 'none';
+                } else {
+                    document.querySelectorAll('.dropdown').forEach(menu => {
+                        if (menu !== dropdownMenu) {
+                            menu.style.display = 'none';
+                        }
+                    });
+                    dropdownMenu.style.display = 'block';
+                }
+            });
+        });
+
+        document.querySelectorAll('.nav-item:not(.dropdown-btn)').forEach(item => {
+            item.addEventListener('click', function (event) {
+                document.querySelectorAll('.dropdown').forEach(menu => {
+                    menu.style.display = 'none';
+                });
+                navbar.classList.remove('active');
+                hamburgerIcon.classList.remove('active');
+            });
+        });
+
+        const navbar = document.querySelector('.navbar');
+        const hamburgerIcon = document.querySelector('.hamburger-icon');
+
+        hamburgerIcon.addEventListener('click', function () {
+            navbar.classList.toggle('active');
+            hamburgerIcon.classList.toggle('active');
+        });
+    </script>
+    <script src="/js/tyjs.js"></script>
+</body>
+
+</html>
