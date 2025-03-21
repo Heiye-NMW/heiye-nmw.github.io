@@ -80,7 +80,7 @@
             display: block;
             width: 25px;
             height: 3px;
-            background-color: #333;
+            background-color: white;
             margin: 5px;
             transition: all 0.3s ease;
         }
@@ -138,10 +138,6 @@
                 display: block;
             }
 
-            .hamburger-icon span {
-                background-color: #333;
-            }
-
             .navbar.active .hamburger-icon span {
                 background-color: white;
             }
@@ -166,20 +162,39 @@
                 </svg></a>Heiye | 影视剧
         </div>
         <div class="nav-item" onclick="loadContent('home.html')">首页</div>
-        <!--
-        <div class="nav-item dropdown-btn">附录
+        <div class="nav-item dropdown-btn">电视剧
             <svg class="arrow" viewBox="0 0 10 10">
                 <path d="M1 1l4 4 4-4" />
             </svg>
             <div class="dropdown">
-                <div class="nav-item" onclick="loadContent('./appendix/sponsor.html')">赞助作者</div>
-                <div class="nav-item" onclick="loadContent('./appendix/cotcftw.html')">查看证书</div>
-                <div class="nav-item" onclick="loadContent('./appendix/about.html')">关于</div>
-            </div>-->
+                <div class="nav-item" onclick="loadContent('./ftd/white_moon_fanxing.html')">白月梵星</div>
+                <div class="nav-item" onclick="loadContent('./ftd/beginning.html')">开端</div>
+            </div>
+        </div>
+        <div class="nav-item dropdown-btn">电影
+            <svg class="arrow" viewBox="0 0 10 10">
+                <path d="M1 1l4 4 4-4" />
+            </svg>
+            <div class="dropdown">
+                <div class="nav-item" onclick="loadContent('./movie/the_wandering_earth_2.html')">流浪地球2​</div>
+                <div class="nav-item" onclick="loadContent('./movie/zhou_chu_eliminates_three_evils.html')">周处除三害​</div>
+                <div class="nav-item" onclick="loadContent('./movie/china_doctor.html')">中国医生​</div>
+                <div class="nav-item" onclick="loadContent('./movie/nezha_tdccitw.html')">哪吒之魔童降世​</div>
+                <div class="nav-item" onclick="loadContent('./movie/goodbye_boom2.html')">拆弹专家2​</div>
+                <div class="nav-item" onclick="loadContent('./movie/china_captain.html')">中国机长​</div>
+                <div class="nav-item" onclick="loadContent('./movie/goodbye_boom.html')">拆弹专家​</div>
+            </div>
         </div>
     </div>
-
-    <div class="content">
+    <style>
+        .player {
+          width: 100%; /* 设置固定的宽度 */
+          aspect-ratio: 16 / 9; /* 保持 16:9 的宽高比例 */
+          border: none;
+          margin: 0 auto; /* 居中显示 */
+        }
+    </style>
+    <div class="content" style="background-color: #333;">
         <div id="content">
             <!--The loaded content will be displayed here-->
         </div>
